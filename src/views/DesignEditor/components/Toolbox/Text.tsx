@@ -77,10 +77,16 @@ const Text = () => {
     }
     if (editor) {
       editor.on("history:changed", watcher)
+      // editor.canvas.canvas.on("text:changed", () => {
+      //   console.log(activeObject)
+      // })
     }
     return () => {
       if (editor) {
         editor.off("history:changed", watcher)
+        // editor.canvas.canvas.off("text:changed", () => {
+        //   console.log(activeObject)
+        // })
       }
     }
   }, [editor, activeObject])
@@ -272,10 +278,10 @@ const Text = () => {
             </Button>
           </StatefulTooltip>
 
-          <StatefulTooltip 
-            placement={PLACEMENT.bottom} 
-            showArrow={true} 
-            accessibilityType="tooltip" 
+          <StatefulTooltip
+            placement={PLACEMENT.bottom}
+            showArrow={true}
+            accessibilityType="tooltip"
             content="Underline"
           >
             <Button
@@ -314,6 +320,7 @@ const Text = () => {
 
 const TextFontSize = () => {
   const editor = useEditor()
+  // const activeObject = useActiveObject<IStaticText>()
   const activeObject = useActiveObject()
   const [value, setValue] = React.useState(12)
 

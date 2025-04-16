@@ -142,6 +142,11 @@ const Navbar = () => {
     a.click()
   }
 
+  const makeDownloadHTML = async () => {
+    const svg = editor.canvas.canvas.toSVG();
+;    console.log(svg)
+  }
+
   const makeDownloadTemplate = async () => {
     if (editor) {
       if (editorType === "GRAPHIC") {
@@ -304,6 +309,22 @@ const Navbar = () => {
           >
             Export
           </Button>
+
+          <Button
+            size="compact"
+            onClick={makeDownloadHTML}
+            kind={KIND.tertiary}
+            overrides={{
+              StartEnhancer: {
+                style: {
+                  marginRight: "4px",
+                },
+              },
+            }}
+          >
+            HTML
+          </Button>
+
           <Button
             size="compact"
             onClick={() => setDisplayPreview(true)}
