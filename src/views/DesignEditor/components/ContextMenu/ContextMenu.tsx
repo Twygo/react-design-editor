@@ -8,6 +8,7 @@ import Locked from "~/components/Icons/Locked"
 import Paste from "~/components/Icons/Paste"
 import SendToBack from "~/components/Icons/SendToBack"
 import Unlocked from "~/components/Icons/Unlocked"
+import { IStaticText } from "@layerhub-io/types"
 
 const ContextMenu = () => {
   const contextMenuRequest = useContextMenuRequest()

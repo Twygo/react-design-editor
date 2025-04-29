@@ -2,17 +2,18 @@ import React from "react"
 import arePassiveEventsSupported from "are-passive-events-supported"
 import useLatest from "use-latest"
 
+const KEYDOWN = "keydown"
 const MOUSEDOWN = "mousedown"
 const TOUCHSTART = "touchstart"
 
-type HandledEvents = [typeof MOUSEDOWN, typeof TOUCHSTART]
+type HandledEvents = [typeof MOUSEDOWN, typeof TOUCHSTART, typeof KEYDOWN]
 type HandledEventsType = HandledEvents[number]
 type PossibleEvent = {
   [Type in HandledEventsType]: HTMLElementEventMap[Type]
 }[HandledEventsType]
 type Handler = (event: PossibleEvent) => void
 
-const events: HandledEvents = [MOUSEDOWN, TOUCHSTART]
+const events: HandledEvents = [MOUSEDOWN, TOUCHSTART, KEYDOWN]
 
 const getAddOptions = (event: HandledEventsType): AddEventListenerOptions | undefined => {
   if (event === TOUCHSTART && arePassiveEventsSupported()) {
